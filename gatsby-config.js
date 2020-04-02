@@ -36,5 +36,5 @@ module.exports = {
       },
     },
   ],
-  pathPrefix: "/testgatsbyrepo",
-}
+  pathPrefix: "/coffeeproject",
+};
