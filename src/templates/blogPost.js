@@ -1,11 +1,13 @@
-import React from "react"
-import { graphql, Link } from "gatsby"
+import React from "react";
+import { graphql, Link } from "gatsby";
+import ReactMarkdown from "react-markdown";
+import Heading from "../components/heading";
 
 const Template = ({ data, pageContext }) => {
-  const { next, prev } = pageContext
-  const title = data.markdownRemark.frontmatter.title
-  const date = data.markdownRemark.frontmatter.date
-  const html = data.markdownRemark.html
+  const { next, prev } = pageContext;
+  const title = data.markdownRemark.frontmatter.title;
+  const date = data.markdownRemark.frontmatter.date;
+  const markdownBody = data.markdownRemark.rawMarkdownBody;
 
   return (
     <div>
@@ -14,7 +16,12 @@ const Template = ({ data, pageContext }) => {
         <em>{date}</em>
       </div>
       <br />
-      <div className="blogPost" dangerouslySetInnerHTML={{ __html: html }} />
+      <div className="blogPost">
+        <ReactMarkdown
+          source={markdownBody}
+          renderers={{ paragraph: Heading }}
+        />
+      </div>
       <p>
         {prev && (
           <Link to={prev.frontmatter.path}>
@@ -38,13 +45,13 @@ const Template = ({ data, pageContext }) => {
         )}
       </p>
     </div>
-  )
-}
+  );
+};
 
 export const postQuery = graphql`
   query($pathSlug: String!) {
     markdownRemark(frontmatter: { path: { eq: $pathSlug } }) {
-      html
+      rawMarkdownBody
       frontmatter {
         title
         date(formatString: "YYYY-MM-DD")
@@ -54,6 +61,6 @@ export const postQuery = graphql`
       }
     }
   }
-`
+`;
 
-export default Template
+export default Template;
