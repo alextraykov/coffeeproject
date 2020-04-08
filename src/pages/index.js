@@ -5,6 +5,7 @@ import Layout from "../components/layout";
 import BlogCard from "../components/BlogCard/BlogCard";
 
 const IndexPage = ({ data }) => {
+  console.log(data);
   return (
     <Layout>
       <div>

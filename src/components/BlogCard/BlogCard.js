@@ -25,6 +25,7 @@ const TextBox = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   position: relative;
+  padding: 32px 16px;
 `;
 
 const Heading = styled.div`
@@ -33,11 +34,22 @@ const Heading = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
+  color: #473e34;
 `;
 
-const Title = styled.h1``;
+const Title = styled.h1`
+  font-size: 20px;
+  line-height: 27px;
+  font-weight: bold;
+  margin-bottom: 8px;
+`;
 
-const Subtitle = styled.h3``;
+const Subtitle = styled.h3`
+  font-size: 18px;
+  line-height: 21px;
+  color: #473e34;
+  margin-bottom: 21px;
+`;
 
 const Icon = styled.div`
   background: #fcf5ed;
@@ -48,7 +60,11 @@ const Icon = styled.div`
   top: 32px;
 `;
 
-const Text = styled.p``;
+const Text = styled.p`
+  font-size: 14px;
+  line-height: 150%;
+  color: ##333333;
+`;
 
 const BlogCard = props => {
   return (
