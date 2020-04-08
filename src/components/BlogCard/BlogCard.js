@@ -28,15 +28,6 @@ const TextBox = styled.div`
   padding: 32px 16px;
 `;
 
-const Heading = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-  color: #473e34;
-`;
-
 const Title = styled.h1`
   font-size: 20px;
   line-height: 27px;
