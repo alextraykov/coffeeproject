@@ -1,52 +1,27 @@
-import React from "react"
-import { graphql, Link } from "gatsby"
+import React from "react";
+import { graphql } from "gatsby";
 
-import Layout from "../components/layout"
+import Layout from "../components/layout";
+import BlogCard from "../components/BlogCard/BlogCard";
 
 const IndexPage = ({ data }) => {
-  const { edges } = data.allMarkdownRemark
-
   return (
     <Layout>
       <div>
-        {edges.map(edge => {
-          const { frontmatter } = edge.node
-          return (
-            <div key={frontmatter.path}>
-              <Link to={frontmatter.path}>{frontmatter.title}</Link>
-              &nbsp;
-              <small>
-                {" "}
-                <em>published on</em> {frontmatter.date}
-              </small>
-              <p>{frontmatter.excerpt}</p>
-              <br />
-            </div>
-          )
-        })}
+        <BlogCard imgData={data.imageSharp} />
       </div>
     </Layout>
-  )
-}
+  );
+};
 
 export const query = graphql`
   query HomePageQuery {
-    allMarkdownRemark(sort: { order: DESC, fields: frontmatter___date }) {
-      totalCount
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-            date(formatString: "MMMM DD, YYYY")
-            path
-            tags
-            excerpt
-          }
-        }
+    imageSharp {
+      original {
+        src
       }
     }
   }
-`
+`;
 
-export default IndexPage
+export default IndexPage;

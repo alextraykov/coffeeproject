@@ -8,7 +8,6 @@ const Template = ({ data, pageContext }) => {
   const title = data.markdownRemark.frontmatter.title;
   const date = data.markdownRemark.frontmatter.date;
   const markdownBody = data.markdownRemark.rawMarkdownBody;
-  const imgSrc = data.imageSharp.original.src;
 
   return (
     <div>
@@ -23,7 +22,6 @@ const Template = ({ data, pageContext }) => {
           renderers={{ paragraph: Heading }}
         />
       </div>
-      <img src={imgSrc} />
       <p>
         {prev && (
           <Link to={prev.frontmatter.path}>

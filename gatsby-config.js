@@ -35,6 +35,7 @@ module.exports = {
         path: `${__dirname}/src/pages/`,
       },
     },
+    `gatsby-plugin-styled-components`,
   ],
   pathPrefix: "/coffeeproject",
 };
