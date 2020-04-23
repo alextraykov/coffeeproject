@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "gatsby";
 import styled from "styled-components";
 
 const Conatainer = styled.div`
@@ -49,27 +50,49 @@ const Icon = styled.div`
   position: absolute;
   right: 16px;
   top: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
+
+const CoffeeSvg = styled.img``;
 
 const Text = styled.p`
   font-size: 14px;
   line-height: 150%;
-  color: ##333333;
+  color: #333333;
+  min-height: 150px;
+`;
+
+const Button = styled(Link)`
+  height: 40px;
+  font-size: 16px;
+  text-decoration: none;
+  color: #473e34;
+  border: 1px solid #473e34;
+  padding: 6px 32px;
+  margin-top: 12px;
 `;
 
 const BlogCard = props => {
   return (
     <Conatainer>
-      <Image src={props.imgData.original.src} />
+      <Image src={props.featuredImage} />
       <TextBox>
         <Title>test</Title>
         <Subtitle>Test</Subtitle>
-        <Icon />
+        <Icon>
+          <CoffeeSvg src={props.featuredImage} />
+        </Icon>
         <Text>
           This method is meant to mimic a traditional pour over like a v60 or
           Beehouse. I find that this method is good for showing off sweetness
           and balance in the cup.
         </Text>
+        <Button to="/test" activeStyle={{ color: "red" }}>
+          Read the article
+        </Button>
       </TextBox>
     </Conatainer>
   );

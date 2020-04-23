@@ -18,23 +18,46 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <CardContainer>
-        <BlogCard imgData={data.imageSharp} />
-        <BlogCard imgData={data.imageSharp} />
-        <BlogCard imgData={data.imageSharp} />
-        <BlogCard imgData={data.imageSharp} />
+        {data.allFile.edges.map((post, index) => {
+          return (
+            <BlogCard
+              featuredImage={
+                post.node.childMarkdownRemark.frontmatter.featuredImage
+                  .childImageSharp.original.src
+              }
+            />
+          );
+        })}
       </CardContainer>
     </Layout>
   );
 };
 
 export const query = graphql`
-  query HomePageQuery {
-    imageSharp {
-      original {
-        src
+  query IndexPageQuery {
+    allFile(filter: { relativePath: { regex: "/^posts//" } }) {
+      edges {
+        node {
+          childMarkdownRemark {
+            frontmatter {
+              date
+              excerpt
+              path
+              tags
+              title
+              featuredImage {
+                childImageSharp {
+                  original {
+                    src
+                  }
+                }
+              }
+            }
+          }
+          relativePath
+        }
       }
     }
   }
 `;
-
 export default IndexPage;
