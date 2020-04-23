@@ -14,21 +14,22 @@ const CardContainer = styled.div`
 `;
 
 const IndexPage = ({ data }) => {
-  console.log(data);
   return (
     <Layout>
-      <CardContainer>
-        {data.allFile.edges.map((post, index) => {
-          return (
-            <BlogCard
-              featuredImage={
-                post.node.childMarkdownRemark.frontmatter.featuredImage
-                  .childImageSharp.original.src
-              }
-            />
-          );
-        })}
-      </CardContainer>
+      {/* <BlogCard featuredImage="asd" large /> */}
+      {/* <CardContainer> */}
+      {data.allFile.edges.map((post, index) => {
+        return (
+          <BlogCard
+            featuredImage={
+              post.node.childMarkdownRemark.frontmatter.featuredImage
+                .childImageSharp.original.src
+            }
+            large
+          />
+        );
+      })}
+      {/* </CardContainer> */}
     </Layout>
   );
 };
