@@ -1,10 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 
-import Header from "./header";
-import "./layout.css";
+import NavBar from "./NavBar";
 
 const Main = styled.main`
   display: flex;
@@ -14,23 +12,13 @@ const Main = styled.main`
 `;
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
-
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <NavBar siteTitle="Caffetarium" />
       <div
         style={{
           margin: `0 auto`,
-          maxWidth: "1300px",
+          maxWidth: "1300px"
         }}
       >
         <Main>{children}</Main>
@@ -41,7 +29,7 @@ const Layout = ({ children }) => {
 };
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 };
 
 export default Layout;

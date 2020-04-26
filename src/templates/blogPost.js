@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import ReactMarkdown from "react-markdown";
-import Heading from "../components/heading";
+import Heading from "../components/markdown/heading";
 
 const Template = ({ data, pageContext }) => {
   const { next, prev } = pageContext;
