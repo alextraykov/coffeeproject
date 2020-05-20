@@ -5,27 +5,26 @@ import styled from "styled-components";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
 
-const Main = styled.main`
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
 `;
 
+const Main = styled.main`
+  width: 100%;
+  max-width: 945px;
+  margin: 0 auto;
+`;
+
 const Layout = ({ children }) => {
   return (
-    <>
-      <NavBar siteTitle="Caffetarium" />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: "1300px"
-        }}
-      >
-        <Main>{children}</Main>
-        <Footer />
-      </div>
-    </>
+    <Wrapper>
+      <NavBar siteTitle="CAFFETARIUM" />
+      <Main>{children}</Main>
+      <Footer />
+    </Wrapper>
   );
 };
 

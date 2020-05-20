@@ -1,14 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 import FooterData from "../../config/footer.json";
+import Heading from "../style/components/Text/Heading";
+import Text from "../style/components/Text/Text";
+import colors from "../style/colors";
 
 const Canvas = styled.div`
   height: 253px;
+  width: 100%;
   background: #473e34;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 const InnerContainer = styled.footer`
-  height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -20,55 +26,98 @@ const InnerContainer = styled.footer`
 const Compartment = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: flex-start;
-
-  & > * {
-    color: #fff;
-    font-family: Inter;
-  }
 `;
 
 const HorizontalLine = styled.hr`
   height: 2px;
   width: 100%;
   margin: 16px 0;
-  background: #332d25;
+  background: ${colors.darkSand};
+  border: none;
 `;
 
 const Column = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  max-width: 30%;
-`;
+  margin-right: 48px;
 
-const ColumnHeader = styled.h4`
-  font-size: 16px;
-  line-height: 19px;
-  font-weight: 600;
+  &:nth-child(3) {
+    margin-right: auto;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
 `;
 
 const Item = styled.a`
-  font-size: 14px;
-  line-height: 17px;
   text-decoration: none;
-  color: #fff;
+  padding-top: 12px;
+`;
+
+const InputConatiner = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin-top: 12px;
+`;
+
+const EmailInput = styled.input`
+  width: 264px;
+  height: 40px;
+  background: ${colors.darkSand};
+  border: none;
+  font-family: Inter;
+  padding: 12px 17px;
+  margin-right: 16px;
+
+  &:focus {
+    outline-width: 0;
+  }
+`;
+
+const Button = styled.button`
+  width: 140px;
+  height: 40px;
+  background: ${colors.white};
+  border: none;
 `;
 
 const Footer = props => {
   return (
     <Canvas>
       <InnerContainer>
-        <Compartment>{renderFooterColumns()}</Compartment>
+        <Compartment>
+          {renderSocialMediaColumn()}
+          {renderFooterColumns()}
+          {renderEmailInputColumn()}
+        </Compartment>
         <HorizontalLine />
         <Compartment>
-          <div>2020 - Present</div>
-          <div>A witty quote about coffee and the creators</div>
-          <div>Donate</div>
+          <Text type="micro">2020 - Present</Text>
+          <Text type="micro">A witty quote about coffee and the creators</Text>
+          <Text type="micro">Donate</Text>
         </Compartment>
       </InnerContainer>
     </Canvas>
+  );
+};
+
+const renderSocialMediaColumn = () => {
+  return (
+    <Column>
+      <Heading size="s">CAFFETARIUM</Heading>
+      <Item href="https://instagram.com">
+        <Text type="body">Instagram</Text>
+      </Item>
+      <Item href="https://twitter.com">
+        <Text type="body">Twitter</Text>
+      </Item>
+    </Column>
   );
 };
 
@@ -76,18 +125,38 @@ const renderFooterColumns = () => {
   return FooterData.columns.map(column => {
     return (
       <Column key={column.name}>
-        <ColumnHeader>{column.name}</ColumnHeader>
+        <Text type="button">{column.name}</Text>
         {renderColumnButtons(column.buttons)}
       </Column>
     );
   });
 };
 
+const renderEmailInputColumn = () => {
+  return (
+    <Column>
+      <Text type="button">New recipes, once a month - no spam</Text>
+      <InputConatiner>
+        <EmailInput
+          type="email"
+          value=""
+          placeholder="Enter your email to sign up"
+        />
+        <Button type="submit">
+          <Text type="button" color="taupe">
+            Submit
+          </Text>
+        </Button>
+      </InputConatiner>
+    </Column>
+  );
+};
+
 const renderColumnButtons = buttons => {
   return buttons.map(button => {
     return (
       <Item href={button.path} key={button.title}>
-        {button.title}
+        <Text type="body">{button.title}</Text>
       </Item>
     );
   });

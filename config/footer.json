@@ -1,16 +1,6 @@
 {
   "columns": [
     {
-      "name": "Caffetarium",
-      "buttons": [
-        { "title": "Twitter", "path": "https://twitter.com/alextraykov" },
-        {
-          "title": "Instagram",
-          "path": "https://www.instagram.com/alex.works/"
-        }
-      ]
-    },
-    {
       "name": "Resources",
       "buttons": [
         { "title": "Blog", "path": "/blog" },

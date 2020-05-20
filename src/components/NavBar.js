@@ -1,31 +1,70 @@
-import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
+import Heading from "../style/components/Text/Heading";
+import StyledLink from "../style/components/StyledLink";
+import Text from "../style/components/Text/Text";
 
-const Header = styled.header`
-  background: transparent;
+const Wrapper = styled.div`
+  height: 100%;
+  max-width: 945px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
 `;
 
-const Title = styled(Link)`
-  color: #473e34;
-  text-decoration: none;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 27px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+const Header = styled.nav`
+  background: transparent;
+  width: 100%;
+  height: 86px;
+`;
+
+const NavCluster = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: auto;
+  height: 100%;
+`;
+
+const ClusterButton = styled(StyledLink)`
+  margin-left: 39px;
+
+  &:first-child {
+    margin-left: 0;
+  }
 `;
 
 const NavBar = ({ siteTitle }) => {
   return (
     <Header>
-      <div>
-        <h1>
-          <Title to="/">{siteTitle}</Title>
-        </h1>
-      </div>
+      <Wrapper>
+        <StyledLink to="/">
+          <Heading size="s" color="taupe">
+            {siteTitle}
+          </Heading>
+        </StyledLink>
+        <NavCluster>
+          <ClusterButton to="/resources">
+            <Text type="button" color="taupe">
+              Resources
+            </Text>
+          </ClusterButton>
+          <ClusterButton to="/about">
+            <Text type="button" color="taupe">
+              About
+            </Text>
+          </ClusterButton>
+          <ClusterButton to="/contact">
+            <Text type="button" color="taupe">
+              Contact
+            </Text>
+          </ClusterButton>
+        </NavCluster>
+      </Wrapper>
     </Header>
   );
 };

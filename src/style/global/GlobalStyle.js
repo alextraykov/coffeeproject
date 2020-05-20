@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     @font-face {
-        font-family: 'Cinzel Decorative';
+        font-family: 'Playfair Display';
         src: url('../fonts/PlayFairDisplaySC-Regular.ttf') format('truetype');
         font-weight: normal;
         font-style: normal;
@@ -30,7 +30,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        font-family: 'Cinzel Decorative';
+        font-family: 'Playfair Display';
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
