@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import NavBar from "./NavBar";
+import Footer from "./Footer";
 
 const Main = styled.main`
   display: flex;
@@ -22,7 +23,7 @@ const Layout = ({ children }) => {
         }}
       >
         <Main>{children}</Main>
-        <footer>© {new Date().getFullYear()}, Alexander Traykov</footer>
+        <Footer />
       </div>
     </>
   );

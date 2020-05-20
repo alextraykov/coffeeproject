@@ -3,22 +3,22 @@ import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 
+const Header = styled.header`
+  background: transparent;
+`;
+
+const Title = styled(Link)`
+  color: #473e34;
+  text-decoration: none;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 27px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+`;
+
 const NavBar = ({ siteTitle }) => {
-  const Header = styled.header`
-    background: transparent;
-  `;
-
-  const Title = styled(Link)`
-    color: #473e34;
-    text-decoration: none;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 27px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  `;
-
   return (
     <Header>
       <div>

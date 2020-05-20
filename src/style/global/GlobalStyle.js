@@ -1,10 +1,16 @@
 import { createGlobalStyle } from "styled-components";
-import { cinzelDecorative } from "../../../static/fonts/CinzelDecorative-Regular.ttf";
 
 const GlobalStyle = createGlobalStyle`
     @font-face {
-        font-family: Cinzel Decorative;
-        src: url(${cinzelDecorative}) format('truetype');
+        font-family: 'Inter';
+        src: url('../fonts/Inter-Regular.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Cinzel Decorative';
+        src: url('../fonts/PlayFairDisplaySC-Regular.ttf') format('truetype');
         font-weight: normal;
         font-style: normal;
     }

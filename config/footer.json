@@ -1,0 +1,29 @@
+{
+  "columns": [
+    {
+      "name": "Caffetarium",
+      "buttons": [
+        { "title": "Twitter", "path": "https://twitter.com/alextraykov" },
+        {
+          "title": "Instagram",
+          "path": "https://www.instagram.com/alex.works/"
+        }
+      ]
+    },
+    {
+      "name": "Resources",
+      "buttons": [
+        { "title": "Blog", "path": "/blog" },
+        { "title": "Recipe List", "path": "/recipe-list" },
+        { "title": "Newsletter posts", "path": "/newsletter" }
+      ]
+    },
+    {
+      "name": "Legal",
+      "buttons": [
+        { "title": "Privacy Policy", "path": "/privacy-policy" },
+        { "title": "Terms of service", "path": "/terms-of-service" }
+      ]
+    }
+  ]
+}

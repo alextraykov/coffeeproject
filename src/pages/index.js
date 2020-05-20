@@ -4,24 +4,14 @@ import { graphql } from "gatsby";
 import GlobalStyle from "../style/global/GlobalStyle";
 
 import Layout from "../components/layout";
-import BlogCard from "../components/BlogCard/BlogCard";
+import Heading from "../components/Text/Heading/Heading";
 
 const IndexPage = ({ data }) => {
   return (
     <>
       <GlobalStyle />
       <Layout>
-        {data.allFile.edges.map((post, index) => {
-          return (
-            <BlogCard
-              featuredImage={
-                post.node.childMarkdownRemark.frontmatter.featuredImage
-                  .childImageSharp.original.src
-              }
-              large
-            />
-          );
-        })}
+        <Heading size={2}>Test</Heading>
       </Layout>
     </>
   );
