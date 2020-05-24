@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const Conatainer = styled.div`
   width: ${item => (item.large ? "100%" : "300px")};
@@ -101,6 +102,10 @@ const BlogCard = props => {
       </TextBox>
     </Conatainer>
   );
+};
+
+BlogCard.propTypes = {
+  large: PropTypes.bool
 };
 
 export default BlogCard;

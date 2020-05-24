@@ -9,6 +9,7 @@ const HeaderTag = styled.h1`
     font-family: Playfair Display;
     font-weight: bold;
     color:  ${props.color !== undefined ? colors[props.color] : colors.white};
+
   `;
     switch (props.size) {
       case "s":

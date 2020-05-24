@@ -26,8 +26,8 @@ const Spacing = props => {
 };
 
 Spacing.propTypes = {
-  width: PropTypes.string.isRequired,
-  height: PropTypes.string.isRequired,
+  width: PropTypes.string,
+  height: PropTypes.string,
   className: PropTypes.string
 };
 

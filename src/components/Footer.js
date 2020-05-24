@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import FooterData from "../../config/footer.json";
 import Heading from "../style/components/Text/Heading";
@@ -26,6 +26,7 @@ const InnerContainer = styled.footer`
 const Compartment = styled.div`
   width: 100%;
   display: flex;
+  justify-content: ${props => (props.between ? `space-between` : `flex-start`)};
   align-items: flex-start;
 `;
 
@@ -74,6 +75,7 @@ const EmailInput = styled.input`
   font-family: Inter;
   padding: 12px 17px;
   margin-right: 16px;
+  color: ${colors.white};
 
   &:focus {
     outline-width: 0;
@@ -88,16 +90,21 @@ const Button = styled.button`
 `;
 
 const Footer = props => {
+  const [inputValue, onChangeInputValue] = useState("");
+
+  const onChangeHandler = input => {
+    onChangeInputValue(input);
+  };
   return (
     <Canvas>
       <InnerContainer>
         <Compartment>
           {renderSocialMediaColumn()}
           {renderFooterColumns()}
-          {renderEmailInputColumn()}
+          {renderEmailInputColumn(inputValue, onChangeHandler)}
         </Compartment>
         <HorizontalLine />
-        <Compartment>
+        <Compartment between={true}>
           <Text type="micro">2020 - Present</Text>
           <Text type="micro">A witty quote about coffee and the creators</Text>
           <Text type="micro">Donate</Text>
@@ -132,14 +139,15 @@ const renderFooterColumns = () => {
   });
 };
 
-const renderEmailInputColumn = () => {
+const renderEmailInputColumn = (value, onChangeHandler) => {
   return (
     <Column>
       <Text type="button">New recipes, once a month - no spam</Text>
       <InputConatiner>
         <EmailInput
           type="email"
-          value=""
+          value={value}
+          onChange={e => onChangeHandler(e.target.value)}
           placeholder="Enter your email to sign up"
         />
         <Button type="submit">

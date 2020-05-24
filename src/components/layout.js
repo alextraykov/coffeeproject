@@ -14,7 +14,6 @@ const Wrapper = styled.div`
 
 const Main = styled.main`
   width: 100%;
-  max-width: 945px;
   margin: 0 auto;
 `;
 
