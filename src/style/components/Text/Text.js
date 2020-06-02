@@ -9,6 +9,8 @@ const TextTag = styled.p`
     font-family: Inter;
     font-weight: normal;
     color: ${props.color !== undefined ? colors[props.color] : colors.white};
+    text-align: ${props.align};
+    line-height: 150%;
   `;
     switch (props.type) {
       case "micro":
