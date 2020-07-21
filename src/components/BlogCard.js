@@ -8,7 +8,7 @@ import Spacing from "../style/components/Spacing";
 const Conatainer = styled.div`
   width: ${item => (item.large ? "100%" : "304px")};
   max-width: ${item => (item.large ? "950px" : "none")};
-  height: ${item => (item.large ? "305px" : "345px")};
+  height: ${item => (item.large ? "305px" : "")};
   display: flex;
   flex-direction: ${item => (item.large ? "row" : "column")};
   justify-content: flex-start;
@@ -88,7 +88,6 @@ const BlogCard = props => {
     icon,
     excerpt
   } = props.card.childMarkdownRemark.frontmatter;
-  console.log(props.card.childMarkdownRemark);
 
   return (
     <Conatainer large={!!props.large}>
