@@ -4,7 +4,7 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
   return new Promise((resolve, reject) => {
-    const blogPostTemplate = path.resolve("src/templates/blogPost.js");
+    const recipePostTemplate = path.resolve("src/templates/recipePost.js");
     resolve(
       graphql(`
         query {
@@ -29,7 +29,7 @@ exports.createPages = ({ graphql, actions }) => {
           const path = node.frontmatter.path;
           createPage({
             path,
-            component: blogPostTemplate,
+            component: recipePostTemplate,
             context: {
               pathSlug: path,
               prev: index === 0 ? null : posts[index - 1].node,

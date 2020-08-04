@@ -6,10 +6,9 @@ import colors from "../../colors";
 const HeaderTag = styled.h1`
   ${props => {
     let settings = `
-    font-family: Playfair Display;
-    font-weight: bold;
-    color:  ${props.color !== undefined ? colors[props.color] : colors.white};
-
+    font-family: ${!!props.font ? `${props.font}` : 'Playfair Display'};
+    font-weight: ${!!props.weight ? `${props.weight}` : 'bold'};
+    color:  ${!!props.color ? colors[props.color] : colors.white};
   `;
     switch (props.size) {
       case "s":
@@ -38,7 +37,9 @@ const Heading = props => {
 Heading.propTypes = {
   size: PropTypes.string.isRequired,
   color: PropTypes.string,
-  className: PropTypes.string
+  className: PropTypes.string,
+  font: PropTypes.string,
+  weight: PropTypes.string
 };
 
 export default Heading;

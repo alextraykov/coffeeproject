@@ -1,6 +1,6 @@
-import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
+
 import Heading from "../style/components/Text/Heading";
 import StyledLink from "../style/components/StyledLink";
 import Text from "../style/components/Text/Text";
@@ -38,13 +38,13 @@ const ClusterButton = styled(StyledLink)`
   }
 `;
 
-const NavBar = ({ siteTitle }) => {
+const NavBar = (props) => {
   return (
     <Header>
       <Wrapper>
         <StyledLink to="/">
           <Heading size="s" color="taupe">
-            {siteTitle}
+            CAFFETARIUM
           </Heading>
         </StyledLink>
         <NavCluster>
@@ -67,14 +67,6 @@ const NavBar = ({ siteTitle }) => {
       </Wrapper>
     </Header>
   );
-};
-
-NavBar.propTypes = {
-  siteTitle: PropTypes.string
-};
-
-NavBar.defaultProps = {
-  siteTitle: ``
 };
 
 export default NavBar;

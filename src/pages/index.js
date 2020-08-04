@@ -9,6 +9,7 @@ import Text from "../style/components/Text/Text";
 import Spacing from "../style/components/Spacing";
 import CardGrid from "../components/CardGrid";
 import Button from "../components/Button";
+import Hero from "../components/Hero";
 
 const IndexPage = props => {
   const { articleCards } = props.data;
@@ -20,6 +21,7 @@ const IndexPage = props => {
     <>
       <GlobalStyle />
       <Layout>
+        <Hero />
         <Section>
           <Heading size="l" color="taupe">
             Brewing Recipes

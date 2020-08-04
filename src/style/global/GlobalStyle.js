@@ -15,6 +15,13 @@ const GlobalStyle = createGlobalStyle`
         font-style: normal;
     }
 
+    @font-face {
+        font-family: 'Roboto';
+        src: url('../fonts/Roboto-Regular.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
     * {
         margin: 0;
         padding: 0;

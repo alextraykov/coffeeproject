@@ -20,7 +20,7 @@ const Main = styled.main`
 const Layout = ({ children }) => {
   return (
     <Wrapper>
-      <NavBar siteTitle="CAFFETARIUM" />
+      <NavBar />
       <Main>{children}</Main>
       <Footer />
     </Wrapper>
