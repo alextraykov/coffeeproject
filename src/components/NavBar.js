@@ -38,7 +38,7 @@ const ClusterButton = styled(StyledLink)`
   }
 `;
 
-const NavBar = (props) => {
+const NavBar = props => {
   return (
     <Header>
       <Wrapper>
@@ -49,17 +49,17 @@ const NavBar = (props) => {
         </StyledLink>
         <NavCluster>
           <ClusterButton to="/resources">
-            <Text type="button" color="taupe">
+            <Text type="button" color="white">
               Resources
             </Text>
           </ClusterButton>
           <ClusterButton to="/about">
-            <Text type="button" color="taupe">
+            <Text type="button" color="white">
               About
             </Text>
           </ClusterButton>
           <ClusterButton to="/contact">
-            <Text type="button" color="taupe">
+            <Text type="button" color="white">
               Contact
             </Text>
           </ClusterButton>

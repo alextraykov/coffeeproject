@@ -25,7 +25,7 @@ const StyledButton = styled(Link)`
 
 const Button = props => {
   return (
-    <StyledButton to="/first-post" {...props}>
+    <StyledButton to={props.path} {...props}>
       {props.children}
     </StyledButton>
   );

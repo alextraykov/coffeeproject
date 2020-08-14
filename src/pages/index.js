@@ -45,7 +45,7 @@ const IndexPage = props => {
             good cup of coffee is always welcome, right?
           </Text>
           <Spacing height="32px" />
-          <Button>Support us</Button>
+          <Button path="/">Support us</Button>
         </Section>
         <Section>
           <Heading size="l" color="taupe">
@@ -69,7 +69,7 @@ const IndexPage = props => {
             contact us.
           </Text>
           <Spacing height="32px" />
-          <Button>Contact us</Button>
+          <Button path="/">Contact us</Button>
         </Section>
       </Layout>
     </>
