@@ -31,7 +31,7 @@ const Image = styled.div`
     z-index: -1;
     background-image: url("${HeroImage}"); 
     background-repeat: no-repeat;
-    // background-size: cover;
+    background-size: cover;
 `;
 
 const Hero = props => {

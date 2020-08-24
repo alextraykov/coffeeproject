@@ -11,6 +11,7 @@ const SpacingTag = styled.div`
         padding: 0;
         background: transparent;
         display: inline-block;
+        flex-shrink: 0;
       `;
   }}
 `;
