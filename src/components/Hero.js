@@ -40,7 +40,7 @@ const Hero = props => {
       <GlobalStyle />
       <Wrapper>
         <TextWrapper>
-          <Heading size="xl" color="taupe">
+          <Heading size="xl" color="taupe" underline>
             Lorem ipsum, sancti tut'im
           </Heading>
           <Spacing height="24px" />

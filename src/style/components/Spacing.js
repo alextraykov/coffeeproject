@@ -5,8 +5,8 @@ import styled from "styled-components";
 const SpacingTag = styled.div`
   ${props => {
     return `
-        width: ${props.width};
-        height: ${props.height};
+        width: ${!!props.width ? props.width : "100%"};
+        height: ${!!props.height ? props.height : "100%"};
         margin: 0;
         padding: 0;
         background: transparent;
