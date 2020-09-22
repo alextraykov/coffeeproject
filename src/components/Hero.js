@@ -5,6 +5,7 @@ import GlobalStyle from "../style/global/GlobalStyle";
 import Spacing from "../style/components/Spacing";
 
 import Heading from "../style/components/Text/Heading";
+import Text from "../style/components/Text/Text";
 
 import HeroImage from "../images/Heroimage.png";
 
