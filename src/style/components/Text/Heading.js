@@ -51,7 +51,7 @@ const Heading = props => {
       <HeaderTag size={props.size} color={props.color} {...props}>
         {props.children}
       </HeaderTag>
-      <Spacing height="19px" />
+      {props.underline && <Spacing height="19px" />}
       {props.underline && <Underline />}
     </>
   );

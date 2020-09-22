@@ -13,21 +13,20 @@ import Layout from "../components/layout";
 import Section from "../components/Section";
 import styled from "styled-components";
 
-
 const Vertical = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  width: 100%;
+  width: ${props => (!!props.width ? props.width : "100%")};
   height: 100%;
 `;
 
-const Inner = styled.div`
+const Horizontal = styled.div`
   display: flex;
-  flex-direction: ${props => !!props.vertical ? "column" : "row"};
+  flex-direction: ${props => (!!props.vertical ? "column" : "row")};
   justify-content: space-between;
-  width: ${props => !!props.width ? props.width : "100%"};
+  width: ${props => (!!props.width ? props.width : "100%")};
   flex-shrink: 0;
 `;
 
@@ -70,80 +69,49 @@ const GridElement = styled.div`
 const Template = ({ data, pageContext }) => {
   return (
     <>
-    <GlobalStyle />
-    <div>
-      <Layout>
-        <Hero />
-        <Section>
-          <GridSection>
-            <GridElement columns="4" rows="1">
-              <Heading size="l" color="taupe">
-                Recipe overview
-              </Heading>
-              <Spacing height="16px" />
-            </GridElement>
-            <GridElement columns="5" rows="1">
-              <Text type="body" color="taupe" align="left">
-                "We find that extraction is higher (19-22% EXT) without over extracting. Like most Aeropress cups, this is full bodied. We do not dilute. We have been able to create incredibly complex and vibrant cups with most coffees we have brewed using this method.”
-              </Text>
-              <Spacing width="16px" />
-            </GridElement>
-            <GridElement columns="3" rows="1">
-              <Vertical>
-                <Inner width="100%">
-                    <Heading size="s" color="taupe">Creator</Heading>
-                    <Text type="body" color="taupe">Chucky's Sofia</Text>
-                </Inner>
-                <Spacing height="24px" />
-                <Inner width="100%">
-                    <Heading size="s" color="taupe">Brew type</Heading>
-                    <Text type="body" color="taupe">Chucky's Sofia</Text>
-                </Inner>
+      <GlobalStyle />
+      <div>
+        <Layout>
+          <Hero />
+          <Section>
+            <Horizontal>
+              <Vertical width="70%">
+                <Heading size="l" color="taupe">
+                  Recipe overview
+                </Heading>
+                <Spacing height="16px" />
+                <Text type="button" color="taupe" align="left">
+                  "We find that extraction is higher (19-22% EXT) without over
+                  extracting. Like most Aeropress cups, this is full bodied. We
+                  do not dilute. We have been able to create incredibly complex
+                  and vibrant cups with most coffees we have brewed using this
+                  method.”
+                </Text>
               </Vertical>
-            </GridElement>
-            <GridElement columns="5" rows="8">
-              <Spacing height="53px" />
-              <Vertical>
-                <Heading size="l" color="taupe">Method</Heading>
+              <Vertical width="30%">
+                <Spacing height="69px" />
+                <Horizontal>
+                  <Heading size="s" color="taupe">
+                    Creator
+                  </Heading>
+                  <Text type="body" color="taupe">
+                    Chucky's Sofia
+                  </Text>
+                </Horizontal>
                 <Spacing height="24px" />
-                <StepList>
-                  <Step>Make sure you completely soak the paper filter with hot water. Use a lot of water ;)</Step>
-                  <Step>Make sure you completely soak the paper filter with hot water. Use a lot of water ;)</Step>
-                  <Step>Make sure you completely soak the paper filter with hot water. Use a lot of water ;)</Step>
-                  <Step>Make sure you completely soak the paper filter with hot water. Use a lot of water ;)</Step>
-                  <Step>Make sure you completely soak the paper filter with hot water. Use a lot of water ;)</Step>
-                </StepList>
+                <Horizontal>
+                  <Heading size="s" color="taupe">
+                    Brew type
+                  </Heading>
+                  <Text type="body" color="taupe">
+                    Chemex
+                  </Text>
+                </Horizontal>
               </Vertical>
-            </GridElement>
-            <GridElement columns="3" rows="1">
-              <Spacing height="53px" />
-                <Vertical>
-                  <Inner width="100%">
-                      <Heading size="s" color="taupe">Creator</Heading>
-                      <Text type="body" color="taupe">Chucky's Sofia</Text>
-                  </Inner>
-                  <Spacing height="24px" />
-                  <Inner width="100%">
-                      <Heading size="s" color="taupe">Brew type</Heading>
-                      <Text type="body" color="taupe">Chucky's Sofia</Text>
-                  </Inner>
-                </Vertical>
-            </GridElement>
-          </GridSection>
-        </Section>
-        <Section small>
-          <Heading size="l" color="taupe">
-           Support us with a cup of coffee
-          </Heading>
-          <Spacing height="17px" />
-          <Text type="button" color="taupe" align="center">
-           We would appreciate your humble support in order to keep this website up and running for longer. On top of that we believe that a good cup of coffee is always welcome, right?
-          </Text>
-          <Spacing height="32px" />
-          <Button path="/">Support us</Button>
-        </Section>
-      </Layout>
-    </div>
+            </Horizontal>
+          </Section>
+        </Layout>
+      </div>
     </>
   );
 };
