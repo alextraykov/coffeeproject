@@ -40,13 +40,13 @@ const Hero = props => {
       <GlobalStyle />
       <Wrapper>
         <TextWrapper>
-          <Heading size="xl" color="taupe" underline>
+          <Heading fs={48} lh={64} color="taupe">
             Lorem ipsum, sancti tut'im
           </Heading>
           <Spacing height="24px" />
-          <Heading size="s" color="taupe" font="Roboto" weight="normal">
+          <Text fs={20} lh={24} color="taupe">
             Chemex brew specifically made for lighter roasts
-          </Heading>
+          </Text>
         </TextWrapper>
         <Spacing height="198px" />
         <Image />
