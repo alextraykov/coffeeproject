@@ -8,10 +8,28 @@ import Spacing from "../style/components/Spacing";
 import Text from "../style/components/Text/Text";
 
 import Button from "../components/Button";
+import CardGrid from "../components/CardGrid";
 import Hero from "../components/Hero";
 import Layout from "../components/layout";
 import Section from "../components/Section";
 import styled from "styled-components";
+
+// TO BE REMOVED
+let text =
+  "Make sure you completely soak the paper filter with hot water. Use a lot of water ;)";
+
+function renderSteps() {
+  let items = [];
+  for (let i = 0; i < 5; i++) {
+    items.push(
+      <Step key={i}>
+        <StepNumber>{i + 1}</StepNumber>
+        {text}
+      </Step>
+    );
+  }
+  return items;
+}
 
 const Vertical = styled.div`
   display: flex;
@@ -39,34 +57,33 @@ const StepList = styled.ol`
   counter-reset: list-counter;
 `;
 
-const Step = styled.li`
-  counter-increment: list-counter;
-
-  &:before {
-    content: counter(list-counter);
-    font-family: Playfair Display;
-    color: ${colors.taupe};
-    font-size: 24px;
-    margin-right: 16px;
-  }
+const Step = styled.div`
+  color: ${colors.taupe};
+  font-size: 16px;
+  line-height: 24px;
+  position: relative;
+  margin-left: 24px;
+  max-width: 600px;
 
   &:not(:last-child) {
-    margin-bottom: 18px;
+    margin-bottom: 24px;
   }
 `;
 
-const GridSection = styled.div`
-  display: grid;
-  grid-template-columns: repeat(8, 118px [col-start]);
-  grid-template-rows: repeat(16, auto [row-start]);
+const StepNumber = styled.div`
+  position: absolute;
+  top: 0;
+  left: -24px;
+  font-size: 24px;
+  line-height: 24px;
+  font-family: Playfair Display;
 `;
 
-const GridElement = styled.div`
-  grid-column: span ${props => !!props.columns && props.columns};
-  grid-row: span ${props => !!props.rows && props.rows};
-`;
-
-const Template = ({ data, pageContext }) => {
+const Template = props => {
+  // TO BE REMOVED
+  const { articleCards } = props.data;
+  let testArr = [].concat(articleCards.edges).concat(articleCards.edges.pop());
+  console.log(props);
   return (
     <>
       <GlobalStyle />
@@ -76,11 +93,11 @@ const Template = ({ data, pageContext }) => {
           <Section>
             <Horizontal>
               <Vertical width="70%">
-                <Heading size="l" color="taupe">
+                <Heading fs={32} lh={42} color="taupe">
                   Recipe overview
                 </Heading>
                 <Spacing height="16px" />
-                <Text type="button" color="taupe" align="left">
+                <Text fs={16} lh={24} color="taupe" align="left">
                   "We find that extraction is higher (19-22% EXT) without over
                   extracting. Like most Aeropress cups, this is full bodied. We
                   do not dilute. We have been able to create incredibly complex
@@ -89,7 +106,7 @@ const Template = ({ data, pageContext }) => {
                 </Text>
               </Vertical>
               <Vertical width="30%">
-                <Spacing height="69px" />
+                <Spacing height="58px" />
                 <Horizontal>
                   <Heading size="s" color="taupe">
                     Creator
@@ -109,6 +126,132 @@ const Template = ({ data, pageContext }) => {
                 </Horizontal>
               </Vertical>
             </Horizontal>
+            <Spacing height="53px" />
+            <Horizontal>
+              <Vertical width="70%">
+                <Heading fs={32} lh={42} color="taupe">
+                  Method
+                </Heading>
+                <Spacing height="24px" />
+                <StepList>{renderSteps()}</StepList>
+              </Vertical>
+              <Vertical width="30%">
+                <Heading fs={32} lh={42} color="taupe">
+                  Recipe
+                </Heading>
+                <Spacing height="28px" />
+                <Horizontal>
+                  <Text
+                    fs={16}
+                    lh={16}
+                    ff="Playfair Display"
+                    color="taupe"
+                    bold
+                  >
+                    Coffee
+                  </Text>
+                  <Text fs={16} lh={16} color="taupe">
+                    22g
+                  </Text>
+                </Horizontal>
+                <Spacing height="24px" />
+                <Horizontal>
+                  <Text
+                    fs={16}
+                    lh={16}
+                    ff="Playfair Display"
+                    color="taupe"
+                    bold
+                  >
+                    Coffee
+                  </Text>
+                  <Text fs={16} lh={16} color="taupe">
+                    22g
+                  </Text>
+                </Horizontal>
+                <Spacing height="24px" />
+                <Horizontal>
+                  <Text
+                    fs={16}
+                    lh={16}
+                    ff="Playfair Display"
+                    color="taupe"
+                    bold
+                  >
+                    Coffee
+                  </Text>
+                  <Text fs={16} lh={16} color="taupe">
+                    22g
+                  </Text>
+                </Horizontal>
+                <Spacing height="24px" />
+                <Horizontal>
+                  <Text
+                    fs={16}
+                    lh={16}
+                    ff="Playfair Display"
+                    color="taupe"
+                    bold
+                  >
+                    Coffee
+                  </Text>
+                  <Text fs={16} lh={16} color="taupe">
+                    22g
+                  </Text>
+                </Horizontal>
+                <Spacing height="24px" />
+                <Horizontal>
+                  <Text
+                    fs={16}
+                    lh={16}
+                    ff="Playfair Display"
+                    color="taupe"
+                    bold
+                  >
+                    Coffee
+                  </Text>
+                  <Text fs={16} lh={16} color="taupe">
+                    22g
+                  </Text>
+                </Horizontal>
+                <Spacing height="24px" />
+              </Vertical>
+            </Horizontal>
+          </Section>
+          <Section small>
+            <Heading fs={32} lh={46} color="taupe">
+              Support us with a cup of coffee
+            </Heading>
+            <Spacing height="16px" />
+            <Text fs={14} lh={21} color="taupe" align="center">
+              We would appreciate your humble support in order to keep this
+              website up and running for longer. On top of that we believe that
+              a good cup of coffee is always welcome, right?
+            </Text>
+            <Spacing height="32px" />
+            <Button path="/">Support us</Button>
+          </Section>
+          <Section>
+            <Heading fs={40} lh={54} color="taupe">
+              Recipe suggestions
+            </Heading>
+            <Spacing height="17px" />
+            <Text fs={16} lh={16} color="taupe" align="left">
+              If you enjoyed making the one listed above, here are some others
+              that you’ll approve
+            </Text>
+            <Spacing height="32px" />
+            <CardGrid items={testArr} />
+            <Spacing height="64px" />
+            <Heading fs={40} lh={54} color="taupe">
+              Featured Coffee places
+            </Heading>
+            <Spacing height="17px" />
+            <Text fs={16} lh={16} color="taupe" align="left">
+              A selection of brewing techniques for coffee enthusiast to enjoy.
+            </Text>
+            <Spacing height="32px" />
+            <CardGrid items={testArr} />
           </Section>
         </Layout>
       </div>
@@ -131,6 +274,38 @@ export const postQuery = graphql`
     imageSharp {
       original {
         src
+      }
+    }
+    articleCards: allFile(filter: { relativePath: { regex: "/^posts//" } }) {
+      edges {
+        node {
+          relativePath
+          childMarkdownRemark {
+            frontmatter {
+              date
+              excerpt
+              path
+              tags
+              title
+              featuredImage {
+                id
+                childImageSharp {
+                  original {
+                    src
+                  }
+                }
+              }
+              icon {
+                childImageSharp {
+                  original {
+                    src
+                  }
+                }
+              }
+            }
+          }
+          id
+        }
       }
     }
   }
