@@ -7,8 +7,6 @@ import Spacing from "../style/components/Spacing";
 import Heading from "../style/components/Text/Heading";
 import Text from "../style/components/Text/Text";
 
-import HeroImage from "../images/Heroimage.png";
-
 const Wrapper = styled.div`
   max-width: 945px;
   margin: 0 auto;
@@ -23,16 +21,16 @@ const TextWrapper = styled.div`
 `;
 
 const Image = styled.div`
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
-    max-height: 538px;
-    width: 43.88888888888889%;
-    z-index: -1;
-    background-image: url("${HeroImage}"); 
-    background-repeat: no-repeat;
-    background-size: cover;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  max-height: 538px;
+  width: 43.88888888888889%;
+  z-index: -1;
+  background-image: ${props => `url("${props.path}")`};
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
 
 const Hero = props => {
@@ -42,15 +40,15 @@ const Hero = props => {
       <Wrapper>
         <TextWrapper>
           <Heading fs={48} lh={64} color="taupe">
-            Lorem ipsum, sancti tut'im
+            {props.heading}
           </Heading>
           <Spacing height="24px" />
           <Text fs={20} lh={24} color="taupe">
-            Chemex brew specifically made for lighter roasts
+            {props.subHeading}
           </Text>
         </TextWrapper>
         <Spacing height="198px" />
-        <Image />
+        <Image path={props.image} />
       </Wrapper>
     </>
   );

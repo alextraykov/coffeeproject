@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
+import styled from "styled-components";
 
 import colors from "../style/colors";
 import GlobalStyle from "../style/global/GlobalStyle";
@@ -7,12 +8,12 @@ import Heading from "../style/components/Text/Heading";
 import Spacing from "../style/components/Spacing";
 import Text from "../style/components/Text/Text";
 
+import { Horizontal, Vertical } from "../components/containers";
 import Button from "../components/Button";
 import CardGrid from "../components/CardGrid";
 import Hero from "../components/Hero";
 import Layout from "../components/layout";
 import Section from "../components/Section";
-import styled from "styled-components";
 
 // TO BE REMOVED
 let text =
@@ -30,23 +31,6 @@ function renderSteps() {
   }
   return items;
 }
-
-const Vertical = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: ${props => (!!props.width ? props.width : "100%")};
-  height: 100%;
-`;
-
-const Horizontal = styled.div`
-  display: flex;
-  flex-direction: ${props => (!!props.vertical ? "column" : "row")};
-  justify-content: space-between;
-  width: ${props => (!!props.width ? props.width : "100%")};
-  flex-shrink: 0;
-`;
 
 const StepList = styled.ol`
   list-style: none;
